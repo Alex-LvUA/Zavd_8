@@ -37,9 +37,9 @@ def get_birthdays_per_week(users):
             b_Monday.append(user["name"])
 
     for user in users:
-        date_w = datetime(2023, user["birthday"].month, user["birthday"].day).date()  # Дні народженні в цьому році
+        date_w = datetime(date.today().year, user["birthday"].month, user["birthday"].day).date()  # Дні народженні в цьому році
         if date.today().day>=26 and date_w.month==1:
-            date_w=datetime(2024, user["birthday"].month, user["birthday"].day).date()
+            date_w=datetime(date.today().year+1, user["birthday"].month, user["birthday"].day).date()
         after_weeks = timedelta(days=6)
         before_monday = timedelta(days=2)
         after_monday = timedelta(days=4)
